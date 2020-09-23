@@ -1,3 +1,3 @@
-import testLog from './modules/test';
+import buttonsEventListeners from './modules/buttons';
 
-testLog();
+buttonsEventListeners();
