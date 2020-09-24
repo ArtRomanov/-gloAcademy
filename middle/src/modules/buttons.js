@@ -41,7 +41,7 @@ const buttonsEventListeners = () => {
     popup.forEach(item => {
         item.addEventListener('click', event => {
             let target = event.target;
-            if (target.classList.contains('close_icon')) {
+            if (target.classList.contains('close_icon') || target.classList.contains('close-btn')) {
                 item.style.display = 'none';
             } else {
                 target = target.closest('.form-content');
