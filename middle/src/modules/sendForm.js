@@ -10,20 +10,16 @@ const sendFrom = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
+
     function forms(item) {
         const inputsArr = [...item.elements].filter(item => item.tagName.toLowerCase() !== 'button' &&
         item.type !== 'button');
 
         inputsArr.forEach(item => {
-            item.addEventListener('change', () => {
+            item.addEventListener('input', () => {
 
-                if (item.name === 'phone') {
-                    const regNum = /^\+?[78]([-()]*\d){10}$/;
-                    if (regNum.test(item.value) === false) {
-                        item.value = '';
-                    }
 
-                } else if (item.name === 'name') {
+                if (item.name === 'name') {
 
                     item.value = item.value.replace(/[^а-яё ]/gi, '');
 
