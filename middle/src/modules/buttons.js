@@ -18,7 +18,10 @@ const buttonsEventListeners = () => {
     });
 
     openPopUp.addEventListener('click', () => {
+
         freeVisitForm.style.display = 'block';
+        console.log(freeVisitForm);
+
     });
 
     if (giftBtn) {
