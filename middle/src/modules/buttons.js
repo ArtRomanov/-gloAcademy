@@ -9,6 +9,7 @@ const buttonsEventListeners = () => {
         giftBtn = document.querySelector('.fixed-gift'),
         gift = document.getElementById('gift');
 
+
     clubsList.addEventListener('click', () => {
         if (clubUl.style.display === 'none' || clubUl.style.display === '') {
             clubUl.style.display = 'block';
@@ -20,7 +21,6 @@ const buttonsEventListeners = () => {
     openPopUp.addEventListener('click', () => {
 
         freeVisitForm.style.display = 'block';
-        console.log(freeVisitForm);
 
     });
 

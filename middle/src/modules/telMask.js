@@ -1,4 +1,4 @@
-const telMask = () => {
+const telMask = item => {
     function setCursorPosition(pos, elem) {
 
         elem.focus();
@@ -41,10 +41,7 @@ const telMask = () => {
     }
 
 
-    const input = document.querySelector("#phone");
-
-    input.addEventListener("input", mask, false);
-
+    item.addEventListener("input", mask, false);
 };
 
 export default telMask;
