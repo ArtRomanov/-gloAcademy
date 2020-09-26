@@ -10,6 +10,9 @@ const sendFrom = () => {
     forms(document.getElementById('form2'));
     const statusMessage = document.createElement('div');
     const preloadAnimation = document.createElement('div');
+    const modalAnswer = document.getElementById('thanks'),
+        modalContent = modalAnswer.querySelector('.form-content');
+    // eslint-disable-next-line no-unused-vars
     const errorMessage = 'Что-то пошло не так...',
         loadMessage = 'Загрузка...';
 
@@ -153,10 +156,10 @@ const sendFrom = () => {
             body: JSON.stringify(body)
         });
 
-        const findPopup = (el, cls) => {
-            while ((el = el.parentElement) && !el.classList.contains(cls));
-            return el.style.display = 'none';
-        };
+        // const findPopup = (el, cls) => {
+        //     while ((el = el.parentElement) && !el.classList.contains(cls));
+        //     return el.style.display = 'none';
+        // };
 
         item.addEventListener('submit', event => {
             event.preventDefault();
@@ -176,7 +179,6 @@ const sendFrom = () => {
 
                 preloadAnimation.classList.add('spinner-grow', 'text-light');
                 statusMessage.textContent = loadMessage;
-
                 const formData = new FormData(item);
                 const body = {};
 
@@ -186,15 +188,22 @@ const sendFrom = () => {
 
                 postData(body)
                     .then(response => {
-                        if (response.status !== 200) {
+                        if (response.status === 200) {
                             throw new Error('status network not 200');
                         }
-                        document.getElementById('thanks').style.display = ' block';
+                        modalAnswer.style.display = ' block';
+                        modalContent.innerHTML = `<h4>Спасибо!</h4>
+                        <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                        <button class="btn close-btn">OK</button>`;
+
                         preloadAnimation.classList.remove('spinner-grow');
                     })
                     .catch(error => {
                         preloadAnimation.classList.remove('spinner-grow');
-                        statusMessage.textContent = errorMessage;
+                        modalAnswer.style.display = ' block';
+                        modalContent.innerHTML = `<h4>Внимание!</h4> 
+                        <p>Что-то пошло не так...<br> Повторите попытку позже.</p>
+                        <button class="btn close-btn">OK</button>`;
                         console.error(error);
                     });
 
@@ -204,7 +213,7 @@ const sendFrom = () => {
 
                 setTimeout(() => {
                     statusMessage.textContent = '';
-                    findPopup(item, 'popup');
+                    // findPopup(item, 'popup');
 
                     item.childNodes.forEach(item => {
                         if (item.tagName !== 'H4' && item.tagName !== undefined && item.tagName !== 'DIV') {
@@ -213,7 +222,7 @@ const sendFrom = () => {
                     });
 
                     target.reset();
-                    document.getElementById('thanks').style.display = ' none';
+                    modalAnswer.style.display = 'none';
                 }, 3000);
 
             }
