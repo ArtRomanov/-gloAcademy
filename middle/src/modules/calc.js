@@ -12,7 +12,7 @@ const calcFunc = () => {
 
     const selectClubPrices = target => {
         if (target.value === 'mozaika') {
-            if (promo.value === 'ТЕЛО2019') {
+            if (promo.value === 'ТЕЛО2020') {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = Math.ceil(mozaikaPrice[i] * 0.7);
                     arr[i] = cardTypes[i].value;
@@ -26,7 +26,7 @@ const calcFunc = () => {
 
         }
         if (target.value === 'schelkovo') {
-            if (promo.value === 'ТЕЛО2019') {
+            if (promo.value === 'ТЕЛО2020') {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = Math.ceil(schelkovoPrice[i] * 0.7);
                     arr[i] = cardTypes[i].value;
@@ -59,7 +59,7 @@ const calcFunc = () => {
             showPrice(target);
         }
         promo.addEventListener('input', () => {
-            if (promo.value === 'ТЕЛО2019') {
+            if (promo.value === 'ТЕЛО2020') {
                 checkboxes.forEach(item => {
                     if (item.checked) {
                         selectClubPrices(item);

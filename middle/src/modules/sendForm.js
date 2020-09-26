@@ -188,7 +188,7 @@ const sendFrom = () => {
 
                 postData(body)
                     .then(response => {
-                        if (response.status === 200) {
+                        if (response.status !== 200) {
                             throw new Error('status network not 200');
                         }
                         modalAnswer.style.display = ' block';
