@@ -4,6 +4,7 @@ import sliderMain from './modules/sliderAuto';
 import calcFunc from './modules/calc';
 import SliderCarousel from './modules/sliderServices';
 import sliderGalery from './modules/sliderGalery';
+import burger from './modules/burgerMenu';
 
 buttonsEventListeners();
 
@@ -14,6 +15,8 @@ sliderMain();
 calcFunc();
 
 sliderGalery();
+
+burger();
 
 const newOne = new SliderCarousel({
     main: '.super_wrapper',
