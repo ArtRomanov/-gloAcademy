@@ -1612,6 +1612,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider {
+    position: relative;
     padding-left: 75px;
     padding-right: 75px;
     max-width: 900px;
@@ -1622,6 +1623,9 @@ nav.popup-menu .close-menu-btn img {
 #gallery .gallery-slider .slide {
     margin: 0 auto !important;
     width: 100%
+}
+#gallery .gallery-slider .slide.slide-active {
+    display: block !important;
 }
 
 #gallery .gallery-slider .slider-arrow {

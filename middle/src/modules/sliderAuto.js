@@ -1,6 +1,8 @@
-const slider = () => {
+const sliderMain = () => {
     const sliderBlock = document.querySelector('.main-slider'),
         slides = sliderBlock.querySelectorAll('.slide');
+
+
     let currentSlide = 0;
 
     const prevSlide = (elem, index) => {
@@ -24,4 +26,4 @@ const slider = () => {
     setInterval(autoPlaySlide, 2000);
 };
 
-export default slider;
+export default sliderMain;

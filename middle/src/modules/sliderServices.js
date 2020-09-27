@@ -90,7 +90,6 @@ export default class SliderCarousel {
     }
 
     responseInit() {
-        console.log(this.responsive)
         const slidesToShowDefault = this.slidesToShow;
         const allResponse = this.responsive.map(item => item.breakpoint);
         const maxResponse = Math.max(...allResponse);

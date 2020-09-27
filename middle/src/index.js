@@ -1,16 +1,19 @@
 import buttonsEventListeners from './modules/buttons';
 import sendForm from './modules/sendForm';
-import slider from './modules/sliderAuto';
+import sliderMain from './modules/sliderAuto';
 import calcFunc from './modules/calc';
 import SliderCarousel from './modules/sliderServices';
+import sliderGalery from './modules/sliderGalery';
 
 buttonsEventListeners();
 
 sendForm();
 
-slider();
+sliderMain();
 
 calcFunc();
+
+sliderGalery();
 
 const newOne = new SliderCarousel({
     main: '.super_wrapper',
