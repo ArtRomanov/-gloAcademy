@@ -1537,32 +1537,32 @@ nav.popup-menu .close-menu-btn img {
     margin-right: 5px
 }
 
-.services-slider {
+.extra-block {
     display: flex;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px
+    /* padding-left: 15px;
+    padding-right: 15px */
 }
 
-.services-slider .slide {
+.extra-block .slide {
     text-align: center;
     margin-right: 6px;
     margin-left: 6px;
     width: 210px
 }
 
-.services-slider .slide img {
+.extra-block .slide img {
     margin: 0 auto 19px
 }
 
-.services-slider .slide h6 {
+.extra-block .slide h6 {
     color: #2e2e2e;
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 8px
 }
 
-.services-slider .slide p {
+.extra-block .slide p {
     color: #616161;
     font-size: 14px;
     font-weight: 300;
@@ -1572,22 +1572,26 @@ nav.popup-menu .close-menu-btn img {
     max-width: 200px;
     margin: 0 auto
 }
+.super_wrapper {
+    position: relative;
+}
 
 .services-slider .slider-arrow {
     position: absolute;
-    top: 75px;
-    margin-top: -18px;
+    top: 130px;
+    /* margin-top: 50px; */
     z-index: 100;
     cursor: pointer
 }
 
-.services-slider .slider-arrow span {
+.services-slider .slider-arrow {
     display: block;
     width: 36px;
     height: 37px;
     background-color: #f4c71b;
     border-radius: 50%;
     text-align: center;
+    
     padding-top: 11px
 }
 
@@ -2367,11 +2371,11 @@ p.personal-data input[type=checkbox]:checked+label:before {
         justify-content: center
     }
 
-    .services-slider .slider-arrow.prev {
+    .services-slider .slider-arrow .prev {
         left: 3px
     }
 
-    .services-slider .slider-arrow.next {
+    .services-slider .slider-arrow .next {
         right: 3px
     }
 }
