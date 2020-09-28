@@ -1,16 +1,16 @@
 const burger = () => {
     const topMenu = document.querySelector('.top-menu'),
-    menuBtn = document.querySelector('.menu-button'),
-    imgBtn = menuBtn.querySelector('img'),
-    popUpMenu = document.querySelector('.popup-menu'),
-    clubsBlock = document.getElementById('clubs'),
-    wrapper = clubsBlock.querySelector('.wrapper'),
-    arrow = document.getElementById('totop');
+        menuBtn = document.querySelector('.menu-button'),
+        imgBtn = menuBtn.querySelector('img'),
+        popUpMenu = document.querySelector('.popup-menu'),
+        clubsBlock = document.querySelectorAll('section'),
+        // wrapper = clubsBlock.querySelector('.wrapper'),
+        arrow = document.getElementById('totop');
     const showMenu = () => {
         popUpMenu.style.display = 'flex';
-    }
-    const closeMenu = (event) => {
-        let target = event.target;
+    };
+    const closeMenu = event => {
+        const target = event.target;
         if (target.matches('a, img')) {
             popUpMenu.style.display = 'none';
 
@@ -20,14 +20,14 @@ const burger = () => {
     const checkResponse = () => {
         const widthWindow = document.documentElement.clientWidth,
             heightWindow = document.documentElement.scrollTop,
-            posTop = wrapper.getBoundingClientRect().top;
+            posTop = clubsBlock[0].getBoundingClientRect().top;
         if (widthWindow < 768 && heightWindow > 200) {
             topMenu.classList.add('menu-fix');
         } else {
             topMenu.classList.remove('menu-fix');
 
         }
-        if (posTop < window.innerHeight){
+        if (posTop < window.innerHeight) {
             arrow.style.display = 'block';
         } else {
             arrow.style.display = 'none';

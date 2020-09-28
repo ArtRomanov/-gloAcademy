@@ -4,7 +4,7 @@ const buttonsEventListeners = () => {
         openPopUp = document.querySelector('.open-popup'),
         freeVisitForm = document.getElementById('free_visit_form'),
         popup = document.querySelectorAll('.popup'),
-        callbackBtn = document.querySelectorAll('.callback-btn'),
+        callbackBtn = document.querySelector('.callback-btn'),
         callbackForm = document.getElementById('callback_form'),
         giftBtn = document.querySelector('.fixed-gift'),
         gift = document.getElementById('gift');
@@ -31,11 +31,11 @@ const buttonsEventListeners = () => {
         });
     }
 
-    callbackBtn.forEach(item => {
-        item.addEventListener('click', () => {
+    // callbackBtn.forEach(item => {
+        callbackBtn.addEventListener('click', () => {
             callbackForm.style.display = 'block';
         });
-    });
+    // });
 
 
     popup.forEach(item => {

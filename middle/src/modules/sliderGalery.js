@@ -55,16 +55,16 @@ const sliderGalery = () => {
         event.preventDefault();
 
         const target = event.target;
-        if (!target.matches('.portfolio-btn, #arrow-right, #arrow-left')) {
+        if (!target.matches('.portfolio-btn, #arrow-right-gallery, #arrow-left-gallery')) {
             return;
         }
 
         prevSlide(li, currentSlide, 'slick-active');
         prevSlide(slides, currentSlide, 'slide-active');
 
-        if (target.matches('#arrow-right')) {
+        if (target.matches('#arrow-right-gallery')) {
             currentSlide++;
-        } else if (target.matches('#arrow-left')) {
+        } else if (target.matches('#arrow-left-gallery')) {
             currentSlide--;
         } else if (target.matches('.portfolio-btn')) {
             btn.forEach((elem, index) => {
@@ -84,16 +84,16 @@ const sliderGalery = () => {
 
     gallery.addEventListener('mouseover', event => {
         if (event.target.matches('.portfolio-btn') ||
-        event.target.matches('#arrow-left') ||
-        event.target.matches('#arrow-right')) {
+        event.target.matches('#arrow-left-gallery') ||
+        event.target.matches('#arrow-right-gallery')) {
             stopSlide();
         }
     });
 
     gallery.addEventListener('mouseout', event => {
         if (event.target.matches('.portfolio-btn') ||
-        event.target.matches('#arrow-left') ||
-        event.target.matches('#arrow-right')) {
+        event.target.matches('#arrow-left-gallery') ||
+        event.target.matches('#arrow-right-gallery')) {
             startSlide();
         }
     });
