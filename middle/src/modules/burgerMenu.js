@@ -17,10 +17,18 @@ const burger = () => {
         }
     };
 
+    const scroll = () => {
+        window.scroll({
+            left: 0,
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     const checkResponse = () => {
         const widthWindow = document.documentElement.clientWidth,
             heightWindow = document.documentElement.scrollTop,
-            posTop = clubsBlock[0].getBoundingClientRect().top;
+            posTop = clubsBlock[1].getBoundingClientRect().top;
         if (widthWindow < 768 && heightWindow > 200) {
             topMenu.classList.add('menu-fix');
         } else {
@@ -39,6 +47,7 @@ const burger = () => {
     window.addEventListener('scroll', checkResponse);
     imgBtn.addEventListener('click', showMenu);
     popUpMenu.addEventListener('click', closeMenu);
+    arrow.addEventListener('click', scroll);
 };
 
 export default burger;
