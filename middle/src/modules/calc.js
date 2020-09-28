@@ -1,41 +1,43 @@
 const calcFunc = () => {
-
     const priceTotal = document.getElementById('price-total'),
         form = document.getElementById('card_order'),
+        presentPrices = form.querySelectorAll('label'),
         cardTypes = form.querySelectorAll('input[name=card-price]'),
         checkboxes = form.querySelectorAll('input[name=club-name]'),
         promo = form.querySelector('input[placeholder="Промокод"]');
     const mozaikaPrice = ['1999', '9900', '13900', '19900'],
         schelkovoPrice = ['2999', '14990', '21990', '24990'];
 
-    const arr = [];
-
+    const priceAdaptation = () => {
+        if (cardTypes.length > 4) {
+            for (let i = 0; i < cardTypes.length; i++) {
+                cardTypes[i].value = presentPrices[i].textContent;
+            }
+        }
+    };
+    priceAdaptation();
     const selectClubPrices = target => {
-        if (target.value === 'mozaika') {
+        if (target.id === 'card_leto_mozaika') {
             if (promo.value === 'ТЕЛО2020') {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = Math.ceil(mozaikaPrice[i] * 0.7);
-                    arr[i] = cardTypes[i].value;
                 }
             } else {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = mozaikaPrice[i];
-                    arr[i] = cardTypes[i].value;
                 }
             }
 
         }
-        if (target.value === 'schelkovo') {
+        if (target.id === 'card_leto_schelkovo') {
             if (promo.value === 'ТЕЛО2020') {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = Math.ceil(schelkovoPrice[i] * 0.7);
-                    arr[i] = cardTypes[i].value;
                 }
 
             } else {
                 for (let i = 0; i < cardTypes.length; i++) {
                     cardTypes[i].value = schelkovoPrice[i];
-                    arr[i] = cardTypes[i].value;
                 }
             }
 
@@ -45,7 +47,9 @@ const calcFunc = () => {
     const showPrice = () => {
         cardTypes.forEach(item => {
             if (item.checked) {
-                priceTotal.textContent = item.value;
+                if (priceTotal) {
+                    priceTotal.textContent = item.value;
+                }
             }
         });
     };
@@ -58,20 +62,22 @@ const calcFunc = () => {
             selectClubPrices(target);
             showPrice(target);
         }
-        promo.addEventListener('input', () => {
-            if (promo.value === 'ТЕЛО2020') {
-                checkboxes.forEach(item => {
-                    if (item.checked) {
-                        selectClubPrices(item);
-                    }
-                });
-                cardTypes.forEach(item => {
-                    if (item.checked) {
-                        showPrice(item);
-                    }
-                });
-            }
-        });
+        if (promo) {
+            promo.addEventListener('input', () => {
+                if (promo.value === 'ТЕЛО2020') {
+                    checkboxes.forEach(item => {
+                        if (item.checked) {
+                            selectClubPrices(item);
+                        }
+                    });
+                    cardTypes.forEach(item => {
+                        if (item.checked) {
+                            showPrice(item);
+                        }
+                    });
+                }
+            });
+        }
     });
 
     checkboxes.forEach(item => {

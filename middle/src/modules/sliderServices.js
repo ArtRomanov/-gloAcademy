@@ -68,7 +68,6 @@ export default class SliderCarousel {
     }
 
     prevSlider() {
-        console.log('prev');
         if (this.options.infinity || this.options.position > 0) {
             --this.options.position;
             if (this.options.position < 0) {
@@ -79,7 +78,6 @@ export default class SliderCarousel {
     }
 
     nextSlider() {
-        console.log('next');
 
         if (this.options.infinity || this.options.position < this.slides.length - this.slidesToShow) {
             ++this.options.position;

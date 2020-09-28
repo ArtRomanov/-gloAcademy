@@ -1,5 +1,5 @@
 import telMask from './telMask';
-
+import calcFunc from './calc';
 
 const sendFrom = () => {
 
@@ -156,11 +156,6 @@ const sendFrom = () => {
             body: JSON.stringify(body)
         });
 
-        // const findPopup = (el, cls) => {
-        //     while ((el = el.parentElement) && !el.classList.contains(cls));
-        //     return el.style.display = 'none';
-        // };
-
         item.addEventListener('submit', event => {
             event.preventDefault();
             const inputs = item.querySelectorAll(`input`);
@@ -213,16 +208,21 @@ const sendFrom = () => {
 
                 setTimeout(() => {
                     statusMessage.textContent = '';
-                    // findPopup(item, 'popup');
 
-                    item.childNodes.forEach(item => {
-                        if (item.tagName !== 'H4' && item.tagName !== undefined && item.tagName !== 'DIV') {
-                            item.style.display = 'block';
-                        }
-                    });
+                    if (target.id !== 'banner-form') {
+                        item.childNodes.forEach(item => {
+                            if (item.tagName !== 'H4' && item.tagName !== undefined && item.tagName !== 'DIV') {
+                                item.style.display = 'block';
+                            }
+                        });
+
+                    }
+
+
 
                     target.reset();
                     modalAnswer.style.display = 'none';
+                    calcFunc();
                 }, 3000);
 
             }

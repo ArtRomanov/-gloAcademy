@@ -31,11 +31,9 @@ const buttonsEventListeners = () => {
         });
     }
 
-    // callbackBtn.forEach(item => {
-        callbackBtn.addEventListener('click', () => {
-            callbackForm.style.display = 'block';
-        });
-    // });
+    callbackBtn.addEventListener('click', () => {
+        callbackForm.style.display = 'block';
+    });
 
 
     popup.forEach(item => {
