@@ -75,6 +75,17 @@ const calcFunc = () => {
                             showPrice(item);
                         }
                     });
+                } else if (promo.value !== 'ТЕЛО2020') {
+                    checkboxes.forEach(item => {
+                        if (item.checked) {
+                            selectClubPrices(item);
+                        }
+                    });
+                    cardTypes.forEach(item => {
+                        if (item.checked) {
+                            showPrice(item);
+                        }
+                    });
                 }
             });
         }

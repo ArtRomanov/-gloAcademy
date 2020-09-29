@@ -4,25 +4,16 @@ const burger = () => {
         imgBtn = menuBtn.querySelector('img'),
         popUpMenu = document.querySelector('.popup-menu'),
         clubsBlock = document.querySelectorAll('section'),
-        // wrapper = clubsBlock.querySelector('.wrapper'),
         arrow = document.getElementById('totop');
     const showMenu = () => {
         popUpMenu.style.display = 'flex';
     };
-    const closeMenu = event => {
+    const menuActivities = event => {
         const target = event.target;
         if (target.matches('a, img')) {
             popUpMenu.style.display = 'none';
 
         }
-    };
-
-    const scroll = () => {
-        window.scroll({
-            left: 0,
-            top: 0,
-            behavior: 'smooth'
-        });
     };
 
     const checkResponse = () => {
@@ -46,8 +37,7 @@ const burger = () => {
     window.addEventListener('resize', checkResponse);
     window.addEventListener('scroll', checkResponse);
     imgBtn.addEventListener('click', showMenu);
-    popUpMenu.addEventListener('click', closeMenu);
-    arrow.addEventListener('click', scroll);
+    popUpMenu.addEventListener('click', menuActivities);
 };
 
 export default burger;

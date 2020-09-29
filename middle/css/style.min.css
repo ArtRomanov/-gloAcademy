@@ -70,7 +70,7 @@ summary {
     font-size: 100%;
     font-weight: 400;
     vertical-align: baseline;
-    background: transparent
+    background: transparent;
 }
 
 article,
@@ -102,7 +102,8 @@ embed {
 }
 
 html {
-    overflow-y: scroll
+    overflow-y: scroll;
+    scroll-behavior: smooth
 }
 
 ul {
@@ -127,7 +128,7 @@ a {
     padding: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: transparent
+    background: transparent,
 }
 
 del {

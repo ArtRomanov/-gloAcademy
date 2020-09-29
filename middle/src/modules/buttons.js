@@ -1,38 +1,41 @@
 const buttonsEventListeners = () => {
-    const clubsList = document.querySelector('.clubs-list'),
-        clubUl = document.getElementById('clubs-list'),
+    const clubUl = document.getElementById('clubs-list'),
         openPopUp = document.querySelector('.open-popup'),
         freeVisitForm = document.getElementById('free_visit_form'),
         popup = document.querySelectorAll('.popup'),
-        callbackBtn = document.querySelector('.callback-btn'),
         callbackForm = document.getElementById('callback_form'),
         giftBtn = document.querySelector('.fixed-gift'),
-        gift = document.getElementById('gift');
+        gift = document.getElementById('gift'),
+        body = document.querySelector('body');
 
-
-    clubsList.addEventListener('click', () => {
-        if (clubUl.style.display === 'none' || clubUl.style.display === '') {
-            clubUl.style.display = 'block';
+    body.addEventListener('click', event => {
+        const target = event.target;
+        const p = target.closest('#choose_club');
+        const callbackPopup = target.closest('.callback-btn-popup');
+        if (target.contains(p)) {
+            if (clubUl.style.display === 'none' || clubUl.style.display === '') {
+                clubUl.style.display = 'block';
+            } else {
+                clubUl.style.display = 'none';
+            }
         } else {
             clubUl.style.display = 'none';
         }
-    });
+        if (target.contains(callbackPopup)) {
+            callbackForm.style.display = 'block';
+        }
+        if (giftBtn) {
+            const test = giftBtn.querySelector('img');
+            if (target.contains(test)) {
+                giftBtn.style.display = 'none';
+                gift.style.display = 'block';
+            }
 
-    openPopUp.addEventListener('click', () => {
+        }
+        if (target.contains(openPopUp)) {
+            freeVisitForm.style.display = 'block';
+        }
 
-        freeVisitForm.style.display = 'block';
-
-    });
-
-    if (giftBtn) {
-        giftBtn.addEventListener('click', () => {
-            giftBtn.style.display = 'none';
-            gift.style.display = 'block';
-        });
-    }
-
-    callbackBtn.addEventListener('click', () => {
-        callbackForm.style.display = 'block';
     });
 
 
